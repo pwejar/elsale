@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+ 
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        Welcome to Dashboard!
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        Your Registered EmailID : {{userEmail}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+  <ion-fab-button color="primary" (click)="goToAddStock()">add stock</ion-fab-button>
+
+ 
+<h2 text-center>Uploaded Freaky Images</h2>
+
+<ion-card color="light" text-center *ngFor="let item of images | async">
+  <ion-card-header>
+    <ion-card-title>
+      {{ item.name }}
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <img [src]="item.filepath" />
+    <a [href]="item.filepath" target="_blank" rel="noopener">Download</a>
+  </ion-card-content>
+</ion-card>
+</ion-content>
+<ion-footer (click)="logout()">
+  <ion-toolbar color="secondary">
+    <ion-title>Log out</ion-title>
+  </ion-toolbar>
+</ion-footer>
